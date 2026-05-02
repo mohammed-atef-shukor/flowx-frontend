@@ -1,67 +1,100 @@
-# flowx
+# FlowX React App
 
-A Vite + React + TypeScript workspace that combines a frontend UI (FlowX) with a mock API ready for role-based flows and local development. This repository is intended as a developer-friendly mock environment to prototype UI, auth/roles, and API interactions.
+FlowX is a frontend-only Vite, React, and TypeScript application with a local
+JSON mock API for development and role-based UI flows.
 
-## Key Features
+## Features
 
-- Frontend built with Vite + React + TypeScript
-- Component library and UI primitives under `src/app/components/ui`
-- Role-aware mock API for local development
-- Opinionated layout and core services in `src/core` and `src/services`
+- Vite-powered React 19 application
+- TypeScript project setup
+- Reusable UI components in `src/components/ui`
+- FlowX application screens under `src/flowx`
+- Mock API data in `db.json`
+- Local JSON server for frontend development
+- Deployment notes for Vercel and other static hosts
 
-## Quick Start
+## Requirements
 
-Prerequisites: Node.js (v16+ recommended) and npm.
+- Node.js 20 or newer recommended
+- npm
 
-1. Install dependencies
+## Getting Started
 
-   npm install
+Install dependencies:
 
-2. Start the development frontend
+```bash
+npm install
+```
 
-   npm run dev
+Create a local environment file from the example:
 
-3. Start the mock API server (if provided)
+```bash
+cp .env.example .env
+```
 
-   npm run server
+Start the frontend:
 
-4. Build for production
+```bash
+npm run dev
+```
 
-   npm run build
+In a second terminal, start the mock API:
 
-5. Preview the production build
+```bash
+npm run server
+```
 
-   npm run preview
+The mock API runs on port `5000`.
 
-If any of the above scripts are missing, inspect `package.json` for available commands.
+## Available Scripts
 
-## Project Structure (high level)
+```bash
+npm run dev        # Start the Vite development server
+npm run server     # Start json-server using db.json
+npm run build      # Build for production
+npm run build:dev  # Build in development mode
+npm run preview    # Preview the production build locally
+npm run lint       # Run ESLint
+npm run format     # Format files with Prettier
+```
 
-- `src/` — application source
-  - `app/` — UI components and app-level primitives
-  - `core/` — providers, feature modules, hooks, and services
-  - `flowx/` — FlowX app entry and workspace pages
-  - `services/` — API clients and service wrappers
+## Project Structure
 
-Other important files:
+```text
+src/
+  app/          App-level routing and guards
+  components/   Shared UI components
+  core/         Core providers, hooks, and services
+  flowx/        FlowX screens and workspace UI
+  services/     API clients and service wrappers
+```
 
-- `index.html` — app entry
-- `vite.config.ts` — Vite configuration
-- `tsconfig.json` — TypeScript config
+Other useful files:
 
-## Documentation & Deployment
+- `db.json` - mock API data
+- `.env.example` - environment variable template
+- `vite.config.ts` - Vite configuration
+- `vercel.json` - Vercel routing configuration
 
-See the repository documents for architecture and deployment notes:
+## Documentation
 
-- [FLOWX_README.md](FLOWX_README.md)
-- [MOCK_API_READY_README.md](MOCK_API_READY_README.md)
-- [README_DEPLOYMENT.md](README_DEPLOYMENT.md)
-- [ARCHITECTURE.md](ARCHITECTURE.md)
+- `ARCHITECTURE.md`
+- `FLOWX_README.md`
+- `MOCK_API_READY_README.md`
+- `DEPLOYMENT_VERCEL.md`
+- `README_DEPLOYMENT.md`
 
-## Contributing
+## Deployment
 
-Improve docs, add tests, or file issues. For code changes, open a PR with a clear description and small, focused commits.
+Build the app before deploying:
+
+```bash
+npm run build
+```
+
+The production output is generated in `dist/`. See `DEPLOYMENT_VERCEL.md` and
+`README_DEPLOYMENT.md` for deployment-specific notes.
 
 ## License
 
-Project license not specified in this repo. Add a `LICENSE` file if you intend to open-source the project.
+No license has been specified for this project.
